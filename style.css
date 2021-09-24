@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+*{
+    outline: none;
+    color: white;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+}
+body{
+    background-color: #322;
+}
+header{
+    padding: 0 30px;
+    background-color: #211;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.logo{
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pesquisas{
+    min-width:180px;
+    margin-left: 40px;
+    margin-right: 0px;
+    width: 45%;
+}
+.pesquisa{
+    width: calc(100% - 110px);
+    color: #fff;
+    background-image: url('src/img/lupa.svg');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding: 10px 5px 10px 40px;
+    border: none;
+    background-color: #433;
+}
+.pesquisa::placeholder{
+    color: #ccc;
+}
+.pesquisar{
+    cursor: pointer;
+    text-align: center;
+    width: 60px;
+    border: none;
+    padding:10px;
+    background-color: #433;
+}
+
+.infos{
+    margin-right: 1vw;
+    display:flex;
+    flex-direction: row;
+}
+.links-header{
+    margin: 0 5px;
+    padding: 15px 15px;
+}
+.links-header:hover{
+    background-color: rgba(255, 255, 255,0.1);
+}
+
+.center{
+    margin-top: 20px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.books{
+    text-align: center;
+    font-size: 28px;
+}
+.container{
+    width:90%;
+    display:flex;
+    margin: 20px 50px 30px 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* grid: auto-flow /  1fr 1fr 1fr; */
+}
+.divs{
+    background-color: #433;
+    border:5px solid #433; 
+    display:flex; 
+    flex-direction: column; 
+    /* justify-content:center; */
+    /* max-height: 430px;
+    max-width:230px; */
+    overflow:hidden;
+    margin:20px 20px;
+}
+.imgDivs{
+    min-height:300px;
+    min-width:200px;
+    
+    height:300px;
+    width:200px;
+
+    max-height:300px;
+    max-width:200px;
+}
+.p1{
+    text-align: center; 
+    margin:10px 5px;
+    max-width:190px;
+}
+/* .p2{
+    text-align:center;
+    color:#ccc;
+    margin:0 5px 10px 5px;
+    max-width:190px;
+    overflow:hidden;
+} */
+#footer{
+    top: 76vh;
+    position:relative;
+}
+
+@media screen and (max-width:600px){
+    header{
+        display:flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .pesquisas{
+        width: 75%;
+        margin-left: 0;
+    }
+    .logo{
+        padding: 10px;
+    }
+}
