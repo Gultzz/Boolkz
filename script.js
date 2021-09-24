@@ -28,7 +28,6 @@ async function encontrarLivros() {
 
 //TODO          Criar DIV
         let div = document.createElement('div');
-        div.setAttribute('style', 'max-height: 430px; max-width:230px;');
         div.setAttribute('class', 'divs');
 
 
@@ -77,3 +76,5 @@ async function encontrarLivros() {
     }
         
 }
+
+
