@@ -74,7 +74,13 @@ header{
 }
 .books{
     text-align: center;
-    font-size: 28px;
+    font-size: 35px;
+}
+.pesq{
+    color: #aaa;
+    text-align: center;
+    font-size: 25px;
+    margin: 10px 20px 0 20px;
 }
 .container{
     width:90%;

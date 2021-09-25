@@ -1,6 +1,7 @@
 var container = document.querySelector(".container");
 var btnPesquisar = document.querySelector(".pesquisar");
 var footer = document.getElementById('footer');
+var i = 0;
 btnPesquisar.addEventListener('click', encontrarLivros);
 addEventListener('keydown', (event) => {
     if (event.keyCode === 13) {
@@ -8,19 +9,31 @@ addEventListener('keydown', (event) => {
     }
 });
 async function encontrarLivros() {
-    
+    i++;
+    console.log(i);
     var inputPesquisa = document.querySelector(".pesquisa").value;
-    if (inputPesquisa.trim().length < 1) {
-        return false;
+    
+    if (i == 1) {
+        var link = await `https://www.googleapis.com/books/v1/volumes?q=lupin`;
+    } else if (i > 1) {
+        if (inputPesquisa.trim().length < 1) {
+            return false;
+        }
+        var link = await `https://www.googleapis.com/books/v1/volumes?q=${inputPesquisa}`;
+        var pesq = document.querySelector('.pesq');
+        setTimeout(() => { 
+            pesq.innerHTML = inputPesquisa[0].toUpperCase() + inputPesquisa.substr(1).toLowerCase();
+        }, 500);
+        
     }
     
-    var link = await `https://www.googleapis.com/books/v1/volumes?q=${inputPesquisa}`;
     var API = await fetch(link).then(r => r.json()).then(API);
     
     container.innerHTML = '';
+    
     for (book of API.items){
         var thumbBook = book.volumeInfo.imageLinks.thumbnail;
-        var descriptionBook = book.volumeInfo.description;
+        // var descriptionBook = book.volumeInfo.description;
         var idBook = book.id;
         var titleBook = book.volumeInfo.title;
         var title = titleBook.split(' ').join('_');
@@ -45,13 +58,13 @@ async function encontrarLivros() {
         
 
 //TODO          Criar P-Text
-        // let p2 = document.createElement('p');
-        // p2.innerHTML = descriptionBook;
-        // p2.setAttribute('class', 'p2');
-        // div.appendChild(p2);
-        // if (descriptionBook.length > 30) {
-        //     console.log('muitas letras');
-        // }
+        //? let p2 = document.createElement('p');
+        //? p2.innerHTML = descriptionBook;
+        //? p2.setAttribute('class', 'p2');
+        //? div.appendChild(p2);
+        //? if (descriptionBook.length > 30) {
+        //?     console.log('muitas letras');
+        //? }
 
 //TODO          Criar A
         let a = document.createElement('a');
@@ -59,7 +72,7 @@ async function encontrarLivros() {
         a.href = link2;
         a.setAttribute('target', '_blank');
         div.appendChild(a);
-        div.appendChild(p)
+        div.appendChild(p);
         
 
         
@@ -76,5 +89,18 @@ async function encontrarLivros() {
     }
         
 }
+encontrarLivros();
+/* 
+?  var obj = {};
+?   obj.name = "Loja";
+?   obj.produtos = {};
+?   obj.produtos.item = "Teste";
+?   obj.preco = 18.90;
+?   console.log(obj); 
+*/
 
-
+/* 
+?    ["Teste"].forEach((item) => {
+?        console.log(item);
+?    });
+*/
